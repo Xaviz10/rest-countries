@@ -1,4 +1,12 @@
 {
+  "babelMacros": {
+    "twin": {
+      "styled": {
+        "import": "default",
+        "from": "styled-components"
+      }
+    }
+  },
   "name": "rest-countries",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +17,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.13.7",
+    "@mui/material": "^5.13.7",
     "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
@@ -16,6 +28,7 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "next": "13.4.9",
+    "next-themes": "^0.2.1",
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -23,5 +36,10 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.1.6",
     "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-twin": "^1.1.0",
+    "twin.macro": "^3.3.1"
   }
 }

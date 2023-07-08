@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -16,6 +17,7 @@ module.exports = {
         darkMode: {
           elements: "#2b3238",
           background: "#20262b",
+          input: "#ffffff",
           text: "#ffffff",
         },
         lightMode: {
@@ -27,5 +29,6 @@ module.exports = {
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 };
