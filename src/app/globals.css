@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "NunitoSans";
+  src: url("../ui/assets/fonts/NunitoSans.eot");
+  src: url("../ui/assets/fonts/NunitoSans.eot?#iefix")
+      format("embedded-opentype"),
+    url("../ui/assets/fonts/NunitoSans.ttf") format("truetype"),
+    url("../ui/assets/fonts/NunitoSans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "NunitoSans-Italic";
+  src: url("../ui/assets/fonts/NunitoSans-Italic.eot");
+  src: url("../ui/assets/fonts/NunitoSans-Italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("../ui/assets/fonts/NunitoSans-Italic.ttf") format("truetype"),
+    url("../ui/assets/fonts/NunitoSans-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  font-family: "NunitoSans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+}
+code {
+  font-family: "NunitoSans", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
 }
