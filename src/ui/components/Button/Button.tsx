@@ -11,6 +11,7 @@ export const Button = styled.button.attrs((props) => ({
   gap-1 
   w-fit
   text-xs
-  lg:(text-base p-4 gap-2)
+  bg-lightMode-elements dark:bg-darkMode-elements
+  lg:(text-base p-2 gap-2)
   `}
 `;

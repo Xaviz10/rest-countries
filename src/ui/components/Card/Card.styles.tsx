@@ -9,6 +9,7 @@ export const StyledCard = styled.article.attrs((props) => ({
   w-80 h-96 sm:(w-64 h-80) 
   bg-lightMode-elements dark:bg-darkMode-elements
   rounded
+  cursor-pointer
   `}
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
 `;
