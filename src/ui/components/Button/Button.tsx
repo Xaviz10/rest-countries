@@ -8,8 +8,9 @@ export const Button = styled.button.attrs((props) => ({
   p-2
   flex 
   items-center
+  justify-center
   gap-1 
-  w-fit
+  // w-fit
   text-xs
   bg-lightMode-elements dark:bg-darkMode-elements
   lg:(text-base p-2 gap-2)

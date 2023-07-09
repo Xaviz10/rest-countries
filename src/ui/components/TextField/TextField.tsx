@@ -47,7 +47,7 @@ export const TextField = forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
           <StyledInput
-            className={`${IconElement ? "pl-16" : ""}`}
+            className={`${IconElement ? "pl-16 pr-8" : "px-8"}`}
             error={error}
             id={id}
             name={name}

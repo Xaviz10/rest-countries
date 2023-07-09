@@ -5,7 +5,7 @@ import { StyledCard, StyledImage, StyledInfoContainer } from "./Card.styles";
 interface CardProps {
   image: string;
   country: string;
-  population: string;
+  population: number;
   region: string;
   capital: string;
   onClick?: MouseEventHandler<HTMLElement>;
@@ -28,18 +28,18 @@ export const Card: FC<CardProps> = ({
       />
       <StyledInfoContainer>
         <h3>{country}</h3>
-        <p>
+        <li>
           <strong>Population:</strong>
           {population}
-        </p>
-        <p>
+        </li>
+        <li>
           <strong>Region:</strong>
           {region}
-        </p>
-        <p>
+        </li>
+        <li>
           <strong>Capital:</strong>
           {capital}
-        </p>
+        </li>
       </StyledInfoContainer>
     </StyledCard>
   );

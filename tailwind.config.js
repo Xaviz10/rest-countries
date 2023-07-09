@@ -11,7 +11,6 @@ module.exports = {
     extend: {
       fontFamily: {
         primaryRegular: ["NunitoSans", "sans-serif"],
-        primaryItalic: ["NunitoSans-Italic", "sans-serif"],
       },
       colors: {
         darkMode: {

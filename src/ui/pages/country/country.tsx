@@ -2,7 +2,6 @@
 import { FC } from "react";
 import { DefaultLayout } from "../../layouts";
 
-import { Select, TextField, Card } from "@/ui/components";
 import {
   StyledBorderCountriesContainer,
   StyledBorderCountriesList,
@@ -14,89 +13,95 @@ import {
 } from "./country.styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@/ui/components/Button";
-import { useRouter } from "next/navigation";
 import { useCountryViewModel } from "@/ui/viewModels";
 
 export const Country: FC = () => {
-  const { handleRedirect } = useCountryViewModel();
-  const countryData = {
-    flag: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg",
-    country: "Colombia",
-    nativeName: "Colombia",
-    domain: ".co",
-    population: "52.215.503",
-    currency: "COP",
-    region: "America",
-    languages: "Spanish",
-    subRegion: "South America",
-    capital: "Bogotá",
-  };
+  const { countryData, handleRedirect } = useCountryViewModel();
 
   return (
     <DefaultLayout>
       <StyledCountrySection>
-        <Button className="px-8" onClick={() => handleRedirect("/")}>
+        <Button className="px-8 w-32" onClick={() => handleRedirect("/")}>
           <ArrowBackIcon />
           Back
         </Button>
-        <StyledInnerContainer>
-          <StyledImage
-            src={countryData.flag}
-            alt={`${countryData.country} Flag`}
-            title={`${countryData.country} Flag`}
-          />
-          <StyledInfoContainer>
-            <h1>{countryData.country}</h1>
-            <StyledInfoList>
-              <li>
-                <strong>Native Name:</strong>
-                {countryData.nativeName}
-              </li>
-              <li>
-                <strong>Population:</strong>
-                {countryData.population}
-              </li>
-              <li>
-                <strong>Region:</strong>
-                {countryData.region}
-              </li>
-              <li>
-                <strong>Sub Region:</strong>
-                {countryData.subRegion}
-              </li>
-              <li>
-                <strong>Capital:</strong>
-                {countryData.capital}
-              </li>
-              <li className="pt-4 lg:pt-0">
-                <strong>Top Level Domain:</strong>
-                {countryData.domain}
-              </li>
-              <li>
-                <strong>Currencies:</strong>
-                {countryData.currency}
-              </li>
-              <li>
-                <strong>Languages:</strong>
-                {countryData.languages}
-              </li>
-            </StyledInfoList>
-            <StyledBorderCountriesContainer>
-              <p>Border Countries: </p>
-              <StyledBorderCountriesList>
-                <li>
-                  <Button>Venezuela</Button>
-                </li>
-                <li>
-                  <Button>Peru</Button>
-                </li>
-                <li>
-                  <Button>Ecuador</Button>
-                </li>
-              </StyledBorderCountriesList>
-            </StyledBorderCountriesContainer>
-          </StyledInfoContainer>
-        </StyledInnerContainer>
+        {countryData ? (
+          <StyledInnerContainer>
+            <div>
+              <StyledImage
+                src={countryData?.flags.svg}
+                alt={`${countryData.name} Flag`}
+                title={`${countryData.name} Flag`}
+              />
+            </div>
+            <StyledInfoContainer>
+              <h1>{countryData.name}</h1>
+              <div className="flex flex-col gap-2 sm:gap-16 md:gap-2 sm:flex-row">
+                <StyledInfoList>
+                  <li>
+                    <strong>Native Name:</strong>{" "}
+                    <span>{countryData.nativeName}</span>
+                  </li>
+                  <li>
+                    <strong>Population:</strong>{" "}
+                    <span>{countryData.population}</span>
+                  </li>
+                  <li>
+                    <strong>Region:</strong> <span>{countryData.region}</span>
+                  </li>
+                  <li>
+                    <strong>Sub Region:</strong>{" "}
+                    <span>{countryData.subregion}</span>
+                  </li>
+                  <li>
+                    <strong>Capital:</strong> <span>{countryData.capital}</span>
+                  </li>
+                </StyledInfoList>
+                <StyledInfoList>
+                  <li className="pt-4 lg:pt-0">
+                    <strong>Top Level Domain:</strong>{" "}
+                    <span>{countryData.topLevelDomain[0]}</span>
+                  </li>
+                  <li className="word-wrap">
+                    <strong>Currencies:</strong>{" "}
+                    <span>
+                      {countryData.currencies
+                        .map((currency) => currency.name)
+                        .join(", ")}
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Languages:</strong>{" "}
+                    <span>
+                      {countryData.languages
+                        .map((language) => language.name)
+                        .join(", ")}
+                    </span>
+                  </li>
+                </StyledInfoList>
+              </div>
+              <StyledBorderCountriesContainer>
+                <p>Border Countries: </p>{" "}
+                <StyledBorderCountriesList>
+                  {countryData.borders.map((border) => (
+                    <li className="w-16" key={`border-${border}`}>
+                      <Button
+                        className="w-16"
+                        onClick={() =>
+                          handleRedirect(`/country?alpha=${border}`)
+                        }
+                      >
+                        {border}
+                      </Button>
+                    </li>
+                  ))}
+                </StyledBorderCountriesList>
+              </StyledBorderCountriesContainer>
+            </StyledInfoContainer>
+          </StyledInnerContainer>
+        ) : (
+          <StyledInnerContainer></StyledInnerContainer>
+        )}
       </StyledCountrySection>
     </DefaultLayout>
   );

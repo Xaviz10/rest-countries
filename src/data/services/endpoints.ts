@@ -1,4 +1,6 @@
 export enum Endpoints {
-  // Auth endpoints
-  send = "send",
+  // All Countries with required fields
+  countries = "all?fields=name,capital,region,population,flags",
+  country = "name",
+  alpha = "alpha",
 }

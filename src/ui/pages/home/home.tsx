@@ -6,7 +6,7 @@ import { DefaultLayout } from "../../layouts";
 
 // } from "./components";
 import { useHomeViewModel } from "../../viewModels";
-import { Select, TextField, Card } from "@/ui/components";
+import { Select, TextField, Card, PaginationCustom } from "@/ui/components";
 import {
   StyledCountriesContainer,
   StyledFilterContainer,
@@ -14,97 +14,62 @@ import {
 } from "./home.styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTheme } from "next-themes";
+import { Pagination } from "@mui/material";
 
 export const Home: FC = () => {
-  // const { theme } = useHomeViewModel();
+  const {
+    currentCountries,
+    handleSearchChange,
+    handleRegionChange,
+    handlePageChange,
+    currentPage,
+    itemsPerPage,
+    totalPages,
+    regionsOptions,
+    handleRedirectToCountry,
+  } = useHomeViewModel();
 
   return (
     <DefaultLayout>
       <StyledHome>
         <StyledFilterContainer>
           <TextField
+            type="search"
+            onChange={handleSearchChange}
             placeholder="Search for a country..."
             className="w-full max-w-lg min-w-[280px]"
             IconElement={SearchIcon}
           />
           <Select
             className="max-w-[198px]"
+            onChange={handleRegionChange}
             defaultValue={"none"}
-            options={[
-              { id: "none", name: "Filter by Region" },
-              { id: 1, name: "Africa" },
-              { id: 2, name: "America" },
-              { id: 3, name: "Asia" },
-              { id: 4, name: "Europe" },
-              { id: 5, name: "Oceania" },
-            ]}
+            options={regionsOptions}
           />
         </StyledFilterContainer>
         <StyledCountriesContainer>
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
-          <Card
-            image="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"
-            country="Colombia"
-            population="52.215.503"
-            region="America"
-            capital="Bogotá"
-          />
+          {currentCountries.map((country, key) => (
+            <Card
+              key={`${country}-${key}`}
+              image={country.flags.png}
+              country={country.name}
+              population={country.population}
+              region={country.region}
+              capital={country.capital}
+              onClick={() => handleRedirectToCountry(country.name)}
+            />
+          ))}
         </StyledCountriesContainer>
+        {!!totalPages && (
+          <div className="mx-auto w-fit">
+            <PaginationCustom
+              className=""
+              count={totalPages}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </div>
+        )}
       </StyledHome>
     </DefaultLayout>
   );

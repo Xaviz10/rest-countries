@@ -20,18 +20,6 @@ export interface SelectProps extends SelectPropsMUI {
   options: Array<OptionsSelectEntity>;
 }
 
-// export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-//   id?: string;
-//   name?: string;
-//   label?: string;
-//   error?: boolean;
-//   helperText?: string;
-//   iconSrc?: string;
-//   placeholder?: string;
-//   options: Array<OptionsSelectEntity>;
-//   selectColor?: string;
-// }
-
 export const Select: FC<SelectProps> = (props) => {
   const {
     className,
@@ -48,10 +36,8 @@ export const Select: FC<SelectProps> = (props) => {
     defaultValue,
     ...rest
   } = props;
-  // const classes = useStyles();
   const { theme } = useTheme();
 
-  console.log(theme);
   return (
     <div
       className={`relative flex flex-col w-full gap-y-1 text-left ${className}`}
