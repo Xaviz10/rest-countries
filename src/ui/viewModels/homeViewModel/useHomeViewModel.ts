@@ -102,6 +102,9 @@ export function useHomeViewModel() {
   }, [allCountriesData, searchVal, region, lastIndex, firstIndex]);
 
   useEffect(() => {
+    setCurrentPage(1);
+  }, [searchVal, region]);
+  useEffect(() => {
     get({ success: handleCountriesDataSuccess });
   }, []);
 
