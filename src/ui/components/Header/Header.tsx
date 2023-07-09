@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { StyledDefaultHeader } from "./Header.styles";
 import { Button } from "../Button";

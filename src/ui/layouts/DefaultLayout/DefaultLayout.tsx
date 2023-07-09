@@ -38,7 +38,7 @@ export const DefaultLayout: FC<PropsWithChildren> = ({ children }) => {
   }
   return (
     <StyledDefaultLayout>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" enableSystem={false}>
         <Header />
         <main>{children}</main>
       </ThemeProvider>
