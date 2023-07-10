@@ -83,18 +83,19 @@ export const Country: FC = () => {
               <StyledBorderCountriesContainer>
                 <p>Border Countries: </p>{" "}
                 <StyledBorderCountriesList>
-                  {countryData.borders.map((border) => (
-                    <li className="w-16" key={`border-${border}`}>
-                      <Button
-                        className="w-16"
-                        onClick={() =>
-                          handleRedirect(`/country?alpha=${border}`)
-                        }
-                      >
-                        {border}
-                      </Button>
-                    </li>
-                  ))}
+                  {!!countryData.borders?.length &&
+                    countryData.borders?.map((border) => (
+                      <li className="w-16" key={`border-${border}`}>
+                        <Button
+                          className="w-16"
+                          onClick={() =>
+                            handleRedirect(`/country?alpha=${border}`)
+                          }
+                        >
+                          {border}
+                        </Button>
+                      </li>
+                    ))}
                 </StyledBorderCountriesList>
               </StyledBorderCountriesContainer>
             </StyledInfoContainer>

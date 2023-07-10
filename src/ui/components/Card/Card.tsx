@@ -23,8 +23,8 @@ export const Card: FC<CardProps> = ({
     <StyledCard onClick={onClick}>
       <StyledImage
         src={image}
-        alt={`${country} Flag`}
-        title={`${country} Flag`}
+        alt={`${country}-Flag`}
+        title={`${country}-Flag`}
       />
       <StyledInfoContainer>
         <h3>{country}</h3>

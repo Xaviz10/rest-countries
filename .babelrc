@@ -16,6 +16,6 @@
         "styled": "styled-components"
       }
     ],
-    "babel-plugin-macros"
+    ["babel-plugin-macros"]
   ]
 }

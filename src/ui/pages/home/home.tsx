@@ -23,7 +23,6 @@ export const Home: FC = () => {
     handleRegionChange,
     handlePageChange,
     currentPage,
-    itemsPerPage,
     totalPages,
     regionsOptions,
     handleRedirectToCountry,
