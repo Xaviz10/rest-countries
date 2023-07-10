@@ -11,11 +11,11 @@
 
 ## Architecture
 
-For this project was used a clean code architecture, this approach was adapted from a React.js project to a Next.js project, using the app folder as a routes folder. For maintain the modularization the project is divided in three other folders:
+For this project was used a clean code architecture, this approach was adapted from a React.js project to a Next.js project, using the app folder as a routes' folder. For maintaining the modularization, the project is divided in three other folders:
 
 - 📀 Data: The data folder represents the data layer of the clean architecture. This layer represents the interaction with data sources such as databases, APIs, or external services. It contains implementations of business rules related to data management. The data layer is dependent on the domain layer and provides concrete implementations of the interfaces defined in the domain layer.
 
-- 📂 Domain : The domain folder represents the domain layer of the clean architecture. The domain layer encapsulates the core business logic and rules of the application. It contains entities that represent the business objects (for this case all the country entities needed) and use cases that define the actions or operations that can be performed on those entities. The domain layer is independent of other layers and should not have dependencies on frameworks or external libraries.
+- 📂 Domain : The domain folder represents the domain layer of the clean architecture. The domain layer encapsulates the core business logic and rules of the application. It contains entities that represent the business objects (in this case, all the country entities needed) and use cases that define the actions or operations that can be performed on those entities. The domain layer is independent of other layers and should not have dependencies on frameworks or external libraries.
 
 - 🏞️ UI: The UI folder represents the user interface layer of the clean architecture. This layer is responsible for handling the user interaction and rendering the user interface components. It includes components, pages, hooks, assets, and styles related to the presentation of the application.
 
